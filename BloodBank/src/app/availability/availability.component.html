@@ -1,0 +1,101 @@
+<app-header></app-header>
+<div>
+  <div class="container">
+    <div class="row">
+      <h2
+        style="
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-top: 85px;
+          font-family: Copperplate, Copperplate Gothic Light, fantasy;
+          background: linear-gradient(black, red);
+          font-size: 33px;
+          -webkit-text-fill-color: transparent;
+          -webkit-background-clip: text;
+          background-clip: text;
+        "
+      >
+        <strong>Blood Available</strong>
+      </h2>
+    </div>
+
+    <!-- <div class="addbtn">
+      <button
+        class="btn btn-outline-danger btn-block"
+        style="margin-bottom: 30px"
+        (click)="addBloodDetails()"
+      >
+        <strong>+ </strong>Add Blood
+      </button>
+    </div> -->
+
+    <span style="font-size: large; font-family: Arial, Helvetica, sans-serif"
+      >Search</span
+    >
+
+    <input
+      type="text"
+      name="search"
+      [(ngModel)]="baState"
+      (ngModelChange)="Search()"
+      placeholder="Enter here to search"
+      style="
+        width: 30%;
+        margin-bottom: 20px;
+        margin-top: 25px;
+        margin-left: 10px;
+      "
+    />
+
+    <table class="table table-bordered">
+      <thead class="thead-dark table-dark">
+        <tr>
+          <th>Id</th>
+          <th>State</th>
+          <th>Area</th>
+          <th>Pincode</th>
+          <th>Blood Group</th>
+          <th class="text-center">Actions</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let blood of bloodDetails">
+          <td>{{ blood.baId }}</td>
+          <td>{{ blood.baState }}</td>
+          <td>{{ blood.baArea }}</td>
+          <td>{{ blood.baPincode }}</td>
+          <td>{{ blood.baBloodGroup }}</td>
+
+          <td class="text-center">
+            <!-- <button
+              class="btn btn-info"
+              (click)="updateBloodDetails(blood.baId)"
+            >
+              Update
+            </button> -->
+
+            <!-- <button
+              class="btn btn-danger"
+              style="margin-left: 10px"
+              (click)="deleteblood(blood.baId)"
+            >
+              ⌦ Delete
+            </button> -->
+
+            <button
+              (click)="bloodinfo(blood.baId)"
+              class="btn btn-success"
+              style="margin-left: 10px"
+            >
+              Details
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <router-outlet></router-outlet>
+  </div>
+  <app-footer></app-footer>
+</div>

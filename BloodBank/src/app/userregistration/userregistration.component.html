@@ -1,0 +1,338 @@
+<div class="main-container">
+    <div class="inner-container">
+      <h2 style="display: flex; justify-content: center; align-items: center">
+        User Register
+      </h2>
+  
+      <form #userregistrationform="ngForm" (ngSubmit)="userregistration()">
+        <div class="form-group">
+          <label for="id" style="margin-bottom: 6px">Id:</label>
+  
+          <input
+            type="number"
+            class="form-control"
+            id="id"
+            placeholder="Enter id"
+            name="id"
+            [(ngModel)]="user.userId"
+            required
+            pattern="^[0-9]+$"
+            #id="ngModel"
+            [class.is-invalid]="id.invalid && id.touched"
+          />
+          <div *ngIf="id.errors && id.invalid && id.touched">
+            <p class="text-danger" *ngIf="id.errors?.['required']">
+              Id is a required field
+            </p>
+            <p class="text-danger" *ngIf="id.errors?.['pattern']">
+              Enter the valid Id
+            </p>
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label for="firstname" style="margin-bottom: 6px">First Name:</label>
+  
+          <input
+            type="text"
+            class="form-control"
+            id="firstname"
+            placeholder="Enter first name"
+            name="firstname"
+            [(ngModel)]="user.userFirstName"
+            required
+            pattern="^[A-Z][a-z]*$"
+            #firstname="ngModel"
+            [class.is-invalid]="firstname.invalid && firstname.touched"
+          />
+          <div *ngIf="firstname.errors && firstname.invalid && firstname.touched">
+            <p class="text-danger" *ngIf="firstname.errors?.['required']">
+              First name is a required field
+            </p>
+            <p class="text-danger" *ngIf="firstname.errors?.['pattern']">
+              Enter the valid first name
+            </p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="lastname" style="margin-bottom: 6px">Last Name:</label>
+  
+          <input
+            type="text"
+            class="form-control"
+            id="lastname"
+            placeholder="Enter last name"
+            name="lastname"
+            [(ngModel)]="user.userLastName"
+            required
+            pattern="^[A-Z][a-z]*$"
+            #lastname="ngModel"
+            [class.is-invalid]="lastname.invalid && lastname.touched"
+          />
+          <div *ngIf="lastname.errors && lastname.invalid && lastname.touched">
+            <p class="text-danger" *ngIf="lastname.errors?.['required']">
+              Last name is a required field
+            </p>
+            <p class="text-danger" *ngIf="lastname.errors?.['pattern']">
+              Enter the valid last name
+            </p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="age" style="margin-bottom: 6px">Age:</label>
+  
+          <input
+            type="number"
+            class="form-control"
+            id="age"
+            placeholder="Enter age"
+            name="age"
+            [(ngModel)]="user.userAge"
+            required
+            pattern="^[0-9]+$"
+            #age="ngModel"
+            [class.is-invalid]="id.invalid && id.touched"
+          />
+          <div *ngIf="age.errors && age.invalid && age.touched">
+            <p class="text-danger" *ngIf="age.errors?.['required']">
+              Age is a required field
+            </p>
+            <p class="text-danger" *ngIf="age.errors?.['pattern']">
+              Enter the valid age
+            </p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="gender" style="margin-bottom: 6px">Gender:</label>
+  
+          <input
+            type="text"
+            class="form-control"
+            id="gender"
+            placeholder="Enter Gender"
+            name="gender"
+            [(ngModel)]="user.userGender"
+            required
+            pattern="^(?:m|M|male|Male|f|F|female|Female)$"
+            #gender="ngModel"
+            [class.is-invalid]="gender.invalid && gender.touched"
+          />
+          <div *ngIf="gender.errors && gender.invalid && gender.touched">
+            <p class="text-danger" *ngIf="gender.errors?.['required']">
+              Gender is a required field
+            </p>
+            <p class="text-danger" *ngIf="gender.errors?.['pattern']">
+              Enter the valid Gender (M|m|Male|male|F|f|Female|female)
+            </p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="contact" style="margin-bottom: 6px">Contact:</label>
+  
+          <input
+            type="number"
+            class="form-control"
+            id="contact"
+            placeholder="Enter contact number"
+            name="contact"
+            [(ngModel)]="user.userContact"
+            required
+            pattern="^[6-9]{1}[0-9]{9}$"
+            #contact="ngModel"
+            [class.is-invalid]="contact.invalid && contact.touched"
+          />
+          <div *ngIf="contact.errors && contact.invalid && contact.touched">
+            <p class="text-danger" *ngIf="contact.errors?.['required']">
+              Contact a required field
+            </p>
+            <p class="text-danger" *ngIf="contact.errors?.['pattern']">
+              Enter the valid contact
+            </p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email" style="margin-bottom: 6px">Email:</label>
+  
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            placeholder="Enter email"
+            name="email"
+            [(ngModel)]="user.userEmail"
+            required
+            pattern="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$"
+            #email="ngModel"
+            [class.is-invalid]="email.invalid && email.touched"
+          />
+          <div *ngIf="email.errors && email.invalid && email.touched">
+            <p class="text-danger" *ngIf="email.errors?.['required']">
+              Email Id is a required field
+            </p>
+            <p class="text-danger" *ngIf="email.errors?.['pattern']">
+              Enter the valid Email Id
+            </p>
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label for="pwd" style="margin-bottom: 6px">Password:</label>
+  
+          <input
+            type="password"
+            class="form-control"
+            id="pwd"
+            placeholder="Enter password"
+            name="pwd"
+            [(ngModel)]="user.userPassword"
+            required
+            pattern="^[\w+\s+0-9]{8,}$"
+            #password="ngModel"
+            [class.is-invalid]="password.invalid && password.touched"
+          />
+  
+          <div *ngIf="password.errors && password.invalid && password.touched">
+            <p *ngIf="password.errors?.['required']" class="text-danger">
+              Password is a required field
+            </p>
+            <p *ngIf="password.errors?.['pattern']" class="text-danger">
+              Password contain minimum 8 characters
+            </p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="weight" style="margin-bottom: 6px">Weight:</label>
+  
+          <input
+            type="number"
+            class="form-control"
+            id="weight"
+            placeholder="Enter weight"
+            name="weight"
+            [(ngModel)]="user.userWeight"
+            required
+            pattern="^[0-9]+$"
+            #weight="ngModel"
+            [class.is-invalid]="weight.invalid && weight.touched"
+          />
+          <div *ngIf="weight.errors && weight.invalid && weight.touched">
+            <p class="text-danger" *ngIf="weight.errors?.['required']">
+              Weight is a required field
+            </p>
+            <p class="text-danger" *ngIf="weight.errors?.['pattern']">
+              Enter the valid weight
+            </p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="state" style="margin-bottom: 6px">State:</label>
+  
+          <input
+            type="text"
+            class="form-control"
+            id="state"
+            placeholder="Enter state"
+            name="state"
+            [(ngModel)]="user.userState"
+            required
+            pattern="^[A-Z][a-z]*$"
+            #state="ngModel"
+            [class.is-invalid]="state.invalid && state.touched"
+          />
+          <div *ngIf="state.errors && state.invalid && state.touched">
+            <p class="text-danger" *ngIf="state.errors?.['required']">
+              State is a required field
+            </p>
+            <p class="text-danger" *ngIf="state.errors?.['pattern']">
+              Enter the valid state
+            </p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="area" style="margin-bottom: 6px">Area:</label>
+  
+          <input
+            type="text"
+            class="form-control"
+            id="area"
+            placeholder="Enter area"
+            name="area"
+            [(ngModel)]="user.userArea"
+            required
+            pattern="^[A-Z][a-z]*$"
+            #area="ngModel"
+            [class.is-invalid]="area.invalid && area.touched"
+          />
+          <div *ngIf="area.errors && area.invalid && area.touched">
+            <p class="text-danger" *ngIf="area.errors?.['required']">
+              Area is a required field
+            </p>
+            <p class="text-danger" *ngIf="area.errors?.['pattern']">
+              Enter the valid area
+            </p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="pin" style="margin-bottom: 6px">Pin code:</label>
+  
+          <input
+            type="number"
+            class="form-control"
+            id="pin"
+            placeholder="Enter pin code"
+            name="pin"
+            [(ngModel)]="user.userPincode"
+            required
+            pattern="^[0-9]+$"
+            #pin="ngModel"
+            [class.is-invalid]="pin.invalid && pin.touched"
+          />
+          <div *ngIf="pin.errors && pin.invalid && pin.touched">
+            <p class="text-danger" *ngIf="pin.errors?.['required']">
+              Pin is a required field
+            </p>
+            <p class="text-danger" *ngIf="pin.errors?.['pattern']">
+              Enter the valid pin code
+            </p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="bloodgroup" style="margin-bottom: 6px">Blood Group:</label>
+  
+          <input
+            type="text"
+            class="form-control"
+            id="bloodgroup"
+            placeholder="Enter bloodgroup"
+            name="bloodgroup"
+            [(ngModel)]="user.userBloodGroup"
+            required
+            pattern="^(A|B|AB|O)[-+]$"
+            #bloodgroup="ngModel"
+            [class.is-invalid]="bloodgroup.invalid && bloodgroup.touched"
+          />
+          <div
+            *ngIf="bloodgroup.errors && bloodgroup.invalid && bloodgroup.touched"
+          >
+            <p class="text-danger" *ngIf="bloodgroup.errors?.['required']">
+              Blood group is a required field
+            </p>
+            <p class="text-danger" *ngIf="bloodgroup.errors?.['pattern']">
+              Enter the valid blood group
+            </p>
+          </div>
+        </div>
+        <button
+          [disabled]="userregistrationform.form.invalid"
+          type="submit"
+          class="btn btn-primary"
+        >
+          Register
+        </button>
+      </form>
+  
+      <h6 class="text-success">{{ message }}</h6>
+      <small [routerLink]="['/userlogin']">Existing user ? Login here</small>
+    </div>
+  </div>
+  

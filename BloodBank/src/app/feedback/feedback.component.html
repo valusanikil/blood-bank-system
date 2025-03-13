@@ -1,0 +1,130 @@
+<app-header></app-header>
+<div class="main-container">
+  <div class="inner-container">
+    <h2 style="display: flex; justify-content: center; align-items: center">
+      Feedback/Experience
+    </h2>
+
+    <form #feedbackform="ngForm" (ngSubmit)="feedbackdone()">
+      <div class="form-group">
+        <label for="id" style="margin-bottom: 6px">Id:</label>
+
+        <input
+          type="number"
+          class="form-control"
+          id="id"
+          placeholder="Enter id"
+          name="id"
+          [(ngModel)]="bloodfeedback.bfId"
+          required
+          pattern="^[0-9]+$"
+          #id="ngModel"
+          [class.is-invalid]="id.invalid && id.touched"
+        />
+        <div *ngIf="id.errors && id.invalid && id.touched">
+          <p class="text-danger" *ngIf="id.errors?.['required']">
+            Id is a required field
+          </p>
+          <p class="text-danger" *ngIf="id.errors?.['pattern']">
+            Enter the valid Id
+          </p>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="hospitalname" style="margin-bottom: 6px"
+          >Hospital Name:</label
+        >
+
+        <input
+          type="text"
+          class="form-control"
+          id="hospitalname"
+          placeholder="Enter state"
+          name="hospitalname"
+          [(ngModel)]="bloodfeedback.bfHospitalName"
+          required
+          pattern="^[A-Za-z]+$"
+          #hospitalname="ngModel"
+          [class.is-invalid]="hospitalname.invalid && hospitalname.touched"
+        />
+        <div
+          *ngIf="
+            hospitalname.errors && hospitalname.invalid && hospitalname.touched
+          "
+        >
+          <p class="text-danger" *ngIf="hospitalname.errors?.['required']">
+            Hospital Name is a required field
+          </p>
+          <p class="text-danger" *ngIf="hospitalname.errors?.['pattern']">
+            Enter the valid hospital name
+          </p>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="city" style="margin-bottom: 6px">City:</label>
+
+        <input
+          type="text"
+          class="form-control"
+          id="city"
+          placeholder="Enter city"
+          name="city"
+          [(ngModel)]="bloodfeedback.bfCity"
+          required
+          pattern="^[A-Z][a-z]*$"
+          #city="ngModel"
+          [class.is-invalid]="city.invalid && city.touched"
+        />
+        <div *ngIf="city.errors && city.invalid && city.touched">
+          <p class="text-danger" *ngIf="city.errors?.['required']">
+            City is a required field
+          </p>
+          <p class="text-danger" *ngIf="city.errors?.['pattern']">
+            Enter the valid city
+          </p>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="comment" style="margin-bottom: 6px">Comments:</label>
+
+        <input
+          type="text"
+          class="form-control"
+          id="comment"
+          placeholder="Enter your comments"
+          name="comment"
+          [(ngModel)]="bloodfeedback.bfComments"
+          required
+          #comment="ngModel"
+          [class.is-invalid]="comment.invalid && comment.touched"
+        />
+        <div *ngIf="comment.errors && comment.invalid && comment.touched">
+          <p class="text-danger" *ngIf="comment.errors?.['required']">
+            Comment is a required field
+          </p>
+        </div>
+      </div>
+      <div
+        style="
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding: 4px;
+        "
+      >
+        <button
+          [disabled]="feedbackform.form.invalid"
+          type="submit"
+          class="btn btn-dark"
+          id="btn"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+<app-footer></app-footer>

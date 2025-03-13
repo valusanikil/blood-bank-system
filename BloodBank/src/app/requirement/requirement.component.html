@@ -1,0 +1,153 @@
+<app-header></app-header>
+
+<div class="main-container">
+  <div class="inner-container">
+    <h2 style="display: flex; justify-content: center; align-items: center">
+      Post Blood Details
+    </h2>
+
+    <form #bloodrequirementform="ngForm" (ngSubmit)="bloodRequirementMethod()">
+      <div class="form-group">
+        <label for="id" style="margin-bottom: 6px">Id:</label>
+
+        <input
+          type="number"
+          class="form-control"
+          id="id"
+          placeholder="Enter id"
+          name="id"
+          [(ngModel)]="bloodrequirement.brId"
+          required
+          pattern="^[0-9]+$"
+          #id="ngModel"
+          [class.is-invalid]="id.invalid && id.touched"
+        />
+        <div *ngIf="id.errors && id.invalid && id.touched">
+          <p class="text-danger" *ngIf="id.errors?.['required']">
+            Id is a required field
+          </p>
+          <p class="text-danger" *ngIf="id.errors?.['pattern']">
+            Enter the valid Id
+          </p>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="state" style="margin-bottom: 6px">State:</label>
+
+        <input
+          type="text"
+          class="form-control"
+          id="state"
+          placeholder="Enter state"
+          name="state"
+          [(ngModel)]="bloodrequirement.brState"
+          required
+          pattern="^[A-Z][a-z]*$"
+          #state="ngModel"
+          [class.is-invalid]="state.invalid && state.touched"
+        />
+        <div *ngIf="state.errors && state.invalid && state.touched">
+          <p class="text-danger" *ngIf="state.errors?.['required']">
+            State is a required field
+          </p>
+          <p class="text-danger" *ngIf="state.errors?.['pattern']">
+            Enter the valid state
+          </p>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="area" style="margin-bottom: 6px">Area:</label>
+
+        <input
+          type="text"
+          class="form-control"
+          id="area"
+          placeholder="Enter area"
+          name="area"
+          [(ngModel)]="bloodrequirement.brArea"
+          required
+          pattern="^[A-Z][a-z]*$"
+          #area="ngModel"
+          [class.is-invalid]="area.invalid && area.touched"
+        />
+        <div *ngIf="area.errors && area.invalid && area.touched">
+          <p class="text-danger" *ngIf="area.errors?.['required']">
+            Area is a required field
+          </p>
+          <p class="text-danger" *ngIf="area.errors?.['pattern']">
+            Enter the valid area
+          </p>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="pin" style="margin-bottom: 6px">Pin code:</label>
+
+        <input
+          type="number"
+          class="form-control"
+          id="pin"
+          placeholder="Enter pin code"
+          name="pin"
+          [(ngModel)]="bloodrequirement.brPincode"
+          required
+          pattern="^[0-9]+$"
+          #pin="ngModel"
+          [class.is-invalid]="pin.invalid && pin.touched"
+        />
+        <div *ngIf="pin.errors && pin.invalid && pin.touched">
+          <p class="text-danger" *ngIf="pin.errors?.['required']">
+            Pin is a required field
+          </p>
+          <p class="text-danger" *ngIf="pin.errors?.['pattern']">
+            Enter the valid pin code
+          </p>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="bloodgroup" style="margin-bottom: 6px">Blood Group:</label>
+
+        <input
+          type="text"
+          class="form-control"
+          id="bloodgroup"
+          placeholder="Enter bloodgroup"
+          name="bloodgroup"
+          [(ngModel)]="bloodrequirement.brBloodGroup"
+          required
+          pattern="^(A|B|AB|O)[-+]$"
+          #bloodgroup="ngModel"
+          [class.is-invalid]="bloodgroup.invalid && bloodgroup.touched"
+        />
+        <div
+          *ngIf="bloodgroup.errors && bloodgroup.invalid && bloodgroup.touched"
+        >
+          <p class="text-danger" *ngIf="bloodgroup.errors?.['required']">
+            Blood group is a required field
+          </p>
+          <p class="text-danger" *ngIf="bloodgroup.errors?.['pattern']">
+            Enter the valid blood group
+          </p>
+        </div>
+      </div>
+      <div
+        style="
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding: 4px;
+        "
+      >
+        <button
+          [disabled]="bloodrequirementform.form.invalid"
+          type="submit"
+          class="btn btn-dark"
+          id="btn"
+        >
+          Add
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+<app-footer></app-footer>

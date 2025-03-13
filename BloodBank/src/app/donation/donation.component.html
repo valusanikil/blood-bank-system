@@ -1,0 +1,255 @@
+<app-header></app-header>
+<div class="main-container">
+  <div class="inner-container">
+    <h2 style="display: flex; justify-content: center; align-items: center">
+      Donate Blood
+    </h2>
+
+    <form #donatebloodform="ngForm" (ngSubmit)="donateBloodMethod()">
+      <div class="form-group">
+        <label for="id" style="margin-bottom: 6px">Id:</label>
+
+        <input
+          type="number"
+          class="form-control"
+          id="id"
+          placeholder="Enter id"
+          name="id"
+          [(ngModel)]="blooddonation.bdId"
+          required
+          pattern="^[0-9]+$"
+          #id="ngModel"
+          [class.is-invalid]="id.invalid && id.touched"
+        />
+        <div *ngIf="id.errors && id.invalid && id.touched">
+          <p class="text-danger" *ngIf="id.errors?.['required']">
+            Id is a required field
+          </p>
+          <p class="text-danger" *ngIf="id.errors?.['pattern']">
+            Enter the valid Id
+          </p>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="state" style="margin-bottom: 6px">State:</label>
+
+        <input
+          type="text"
+          class="form-control"
+          id="state"
+          placeholder="Enter state"
+          name="state"
+          [(ngModel)]="blooddonation.bdState"
+          required
+          pattern="^[A-Z][a-z]*$"
+          #state="ngModel"
+          [class.is-invalid]="state.invalid && state.touched"
+        />
+        <div *ngIf="state.errors && state.invalid && state.touched">
+          <p class="text-danger" *ngIf="state.errors?.['required']">
+            State is a required field
+          </p>
+          <p class="text-danger" *ngIf="state.errors?.['pattern']">
+            Enter the valid state
+          </p>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="area" style="margin-bottom: 6px">Area:</label>
+
+        <input
+          type="text"
+          class="form-control"
+          id="area"
+          placeholder="Enter area"
+          name="area"
+          [(ngModel)]="blooddonation.bdArea"
+          required
+          pattern="^[A-Z][a-z]*$"
+          #area="ngModel"
+          [class.is-invalid]="area.invalid && area.touched"
+        />
+        <div *ngIf="area.errors && area.invalid && area.touched">
+          <p class="text-danger" *ngIf="area.errors?.['required']">
+            Area is a required field
+          </p>
+          <p class="text-danger" *ngIf="area.errors?.['pattern']">
+            Enter the valid area
+          </p>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="pin" style="margin-bottom: 6px">Pin code:</label>
+
+        <input
+          type="number"
+          class="form-control"
+          id="pin"
+          placeholder="Enter pin code"
+          name="pin"
+          [(ngModel)]="blooddonation.bdPincode"
+          required
+          pattern="^[0-9]+$"
+          #pin="ngModel"
+          [class.is-invalid]="pin.invalid && pin.touched"
+        />
+        <div *ngIf="pin.errors && pin.invalid && pin.touched">
+          <p class="text-danger" *ngIf="pin.errors?.['required']">
+            Pin is a required field
+          </p>
+          <p class="text-danger" *ngIf="pin.errors?.['pattern']">
+            Enter the valid pin code
+          </p>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="bloodgroup" style="margin-bottom: 6px">Blood Group:</label>
+
+        <input
+          type="text"
+          class="form-control"
+          id="bloodgroup"
+          placeholder="Enter bloodgroup"
+          name="bloodgroup"
+          [(ngModel)]="blooddonation.bdBloodGroup"
+          required
+          pattern="^(A|B|AB|O)[-+]$"
+          #bloodgroup="ngModel"
+          [class.is-invalid]="bloodgroup.invalid && bloodgroup.touched"
+        />
+        <div
+          *ngIf="bloodgroup.errors && bloodgroup.invalid && bloodgroup.touched"
+        >
+          <p class="text-danger" *ngIf="bloodgroup.errors?.['required']">
+            Blood group is a required field
+          </p>
+          <p class="text-danger" *ngIf="bloodgroup.errors?.['pattern']">
+            Enter the valid blood group
+          </p>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="hospitalname" style="margin-bottom: 6px"
+          >Hospital Name:</label
+        >
+
+        <input
+          type="text"
+          class="form-control"
+          id="hospitalname"
+          placeholder="Enter state"
+          name="hospitalname"
+          [(ngModel)]="blooddonation.bdHospitalName"
+          required
+          pattern="^[A-Za-z]+$"
+          #hospitalname="ngModel"
+          [class.is-invalid]="hospitalname.invalid && hospitalname.touched"
+        />
+        <div
+          *ngIf="
+            hospitalname.errors && hospitalname.invalid && hospitalname.touched
+          "
+        >
+          <p class="text-danger" *ngIf="hospitalname.errors?.['required']">
+            Hospital Name is a required field
+          </p>
+          <p class="text-danger" *ngIf="hospitalname.errors?.['pattern']">
+            Enter the valid hospital name
+          </p>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="date" style="margin-bottom: 6px">Date:</label>
+
+        <input
+          type="text"
+          class="form-control"
+          id="date"
+          placeholder="Enter date"
+          name="date"
+          [(ngModel)]="blooddonation.bdDate"
+          required
+          pattern="^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$"
+          #date="ngModel"
+          [class.is-invalid]="date.invalid && date.touched"
+        />
+        <div *ngIf="date.errors && date.invalid && date.touched">
+          <p class="text-danger" *ngIf="date.errors?.['required']">
+            Date is a required field
+          </p>
+          <p class="text-danger" *ngIf="date.errors?.['pattern']">
+            Enter the valid date format
+          </p>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="time" style="margin-bottom: 6px">Time:</label>
+
+        <input
+          type="text"
+          class="form-control"
+          id="time"
+          placeholder="Enter time"
+          name="time"
+          [(ngModel)]="blooddonation.bdTime"
+          required
+          pattern="^(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$"
+          #time="ngModel"
+          [class.is-invalid]="time.invalid && time.touched"
+        />
+        <div *ngIf="time.errors && time.invalid && time.touched">
+          <p class="text-danger" *ngIf="time.errors?.['required']">
+            Time is a required field
+          </p>
+          <p class="text-danger" *ngIf="time.errors?.['pattern']">
+            Enter the valid time
+          </p>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="city" style="margin-bottom: 6px">City:</label>
+
+        <input
+          type="text"
+          class="form-control"
+          id="city"
+          placeholder="Enter city"
+          name="city"
+          [(ngModel)]="blooddonation.bdCity"
+          required
+          pattern="^[A-Z][a-z]*$"
+          #city="ngModel"
+          [class.is-invalid]="city.invalid && city.touched"
+        />
+        <div *ngIf="city.errors && city.invalid && city.touched">
+          <p class="text-danger" *ngIf="city.errors?.['required']">
+            City is a required field
+          </p>
+          <p class="text-danger" *ngIf="city.errors?.['pattern']">
+            Enter the valid city
+          </p>
+        </div>
+      </div>
+      <div
+        style="
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding: 4px;
+        "
+      >
+        <button
+          [disabled]="donatebloodform.form.invalid"
+          type="submit"
+          class="btn btn-dark"
+          id="btn"
+        >
+          Donate
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+<app-footer></app-footer>

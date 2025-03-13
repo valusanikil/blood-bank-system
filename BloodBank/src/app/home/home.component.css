@@ -1,0 +1,39 @@
+.mainTitle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    margin-top: 56px;
+    height: 215px;
+    background-color: #f44336;
+    color: #ffffff;
+    font-size: 36px;
+    font-weight: 400;
+    font-family: sans-serif;
+  }
+  .BloodTitle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 22px;
+  }
+  
+  #hover {
+    color: #0000;
+    background: linear-gradient(90deg, #1095c1 50%, rgb(211, 34, 34) 0)
+      var(--_p, 100%) / 200% no-repeat;
+    -webkit-background-clip: text;
+    background-clip: text;
+    transition: 0.2s;
+  }
+  #hover:hover {
+    --_p: 0%;
+  }
+  
+  h6 {
+    font-family: system-ui, sans-serif;
+    margin: 0;
+    cursor: pointer;
+    padding: 5px;
+  }
+  

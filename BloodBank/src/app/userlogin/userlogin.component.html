@@ -1,0 +1,76 @@
+<div class="main-container">
+    <div class="inner-container">
+      <h2 style="display: flex; justify-content: center; align-items: center">
+        User Login
+      </h2>
+  
+      <form #userloginform="ngForm" (ngSubmit)="userlogin()">
+        <div class="form-group">
+          <label for="email" style="margin-bottom: 6px">Email:</label>
+  
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            placeholder="Enter email"
+            name="email"
+            [(ngModel)]="user.userEmail"
+            required
+            pattern="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$"
+            #email="ngModel"
+            [class.is-invalid]="email.invalid && email.touched"
+          />
+          <div *ngIf="email.errors && email.invalid && email.touched">
+            <p class="text-danger" *ngIf="email.errors?.['required']">
+              Email Id is a required field
+            </p>
+            <p class="text-danger" *ngIf="email.errors?.['pattern']">
+              Enter the valid Email Id
+            </p>
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label for="pwd" style="margin-bottom: 6px">Password:</label>
+  
+          <input
+            type="password"
+            class="form-control"
+            id="pwd"
+            placeholder="Enter password"
+            name="pwd"
+            [(ngModel)]="user.userPassword"
+            required
+            pattern="^[\w+\s+0-9]{8,}$"
+            #password="ngModel"
+            [class.is-invalid]="password.invalid && password.touched"
+          />
+  
+          <div *ngIf="password.errors && password.invalid && password.touched">
+            <p *ngIf="password.errors?.['required']" class="text-danger">
+              Password is a required field
+            </p>
+            <p *ngIf="password.errors?.['pattern']" class="text-danger">
+              Password contain minimum 8 characters
+            </p>
+          </div>
+        </div>
+  
+        <div class="checkbox" style="margin-bottom: 14px">
+          <label><input type="checkbox" name="remember" /> Remember me</label>
+        </div>
+  
+        <button
+          [disabled]="userloginform.form.invalid"
+          type="submit"
+          class="btn btn-primary"
+        >
+          Login
+        </button>
+      </form>
+  
+      <h6 class="text-danger">{{ message }}</h6>
+      <small [routerLink]="['/userregistration']">New user ? Register here</small>
+    </div>
+  </div>
+  

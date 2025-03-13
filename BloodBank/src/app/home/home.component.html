@@ -1,0 +1,99 @@
+<app-header></app-header>
+<div style="height: 100vh; margin-top: 56px">
+  <h1 class="mainTitle" name="title" id="title">{{ title }}</h1>
+  <div class="BloodTitle">
+    <h2
+      style="
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 25px;
+        font-family: Copperplate, Copperplate Gothic Light, fantasy;
+        background: linear-gradient(black, red);
+        font-size: 33px;
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+        background-clip: text;
+      "
+    >
+      <strong>Urgent Blood Required</strong>
+    </h2>
+  </div>
+  <br />
+  <div class="container">
+    <span style="font-size: large; font-family: Arial, Helvetica, sans-serif"
+      >Search</span
+    >
+
+    <input
+      type="text"
+      name="search"
+      [(ngModel)]="brState"
+      (ngModelChange)="Search()"
+      placeholder="Enter here to search"
+      style="width: 30%; margin-bottom: 20px; margin-left: 10px"
+    />
+
+    <table class="table table-bordered">
+      <thead class="thead-dark table-dark">
+        <tr>
+          <th>Id</th>
+          <th>State</th>
+          <th>Area</th>
+          <th>Pincode</th>
+          <th>Blood Group</th>
+          <!-- <th class="text-center">Actions</th> -->
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let blood of bloodlist">
+          <td>{{ blood.brId }}</td>
+          <td>{{ blood.brState }}</td>
+          <td>{{ blood.brArea }}</td>
+          <td>{{ blood.brPincode }}</td>
+          <td>{{ blood.brBloodGroup }}</td>
+
+          <!-- <td class="text-center">
+            <button (click)="updateEmployee(employee.id)" class="btn btn-info">
+              Update
+            </button>
+
+            <button
+              (click)="deleteEmployee(employee.id)"
+              class="btn btn-danger"
+              style="margin-left: 10px"
+            >
+              ⌦ Delete
+            </button> -->
+
+          <!-- <button (click)="employeeDetails(employee.id)" class="btn btn-success" style="margin-left: 10px"> View</button> -->
+          <!-- </td> -->
+
+          <!-- <td></td> -->
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="link">
+      <a
+        routerLink="/donation"
+        routerLinkActive="active"
+        id="hover"
+        class="nav-link"
+      >
+        <h6>Donate blood, Save life</h6>
+      </a>
+      <a
+        routerLink="/dashboard"
+        routerLinkActive="active"
+        id="hover"
+        class="nav-link"
+        ><h6>Visit Home Page</h6>
+      </a>
+    </div>
+    <router-outlet></router-outlet>
+  </div>
+  <br />
+  <app-footer></app-footer>
+</div>

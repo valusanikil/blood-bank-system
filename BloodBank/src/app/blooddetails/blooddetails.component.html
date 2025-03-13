@@ -1,0 +1,39 @@
+<app-header></app-header>
+<div class="main-container" style="height: 100vh">
+  <h2 class="main-title">
+    <strong>Blood Details</strong>
+  </h2>
+  <div class="blood-table">
+    <table>
+      <tbody>
+        <tr>
+          <th scope="row">Id:</th>
+          <td>{{ bloodavailability.baId }}</td>
+        </tr>
+        <tr>
+          <th scope="row">State:</th>
+          <td>{{ bloodavailability.baState }}</td>
+        </tr>
+        <tr>
+          <th scope="row">Area:</th>
+          <td>{{ bloodavailability.baArea }}</td>
+        </tr>
+        <tr>
+          <th scope="row">Pincode:</th>
+          <td>{{ bloodavailability.baPincode }}</td>
+        </tr>
+        <tr>
+          <th scope="row">Blood Group:</th>
+          <td>{{ bloodavailability.baBloodGroup }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div>
+    <button type="button" class="btn btn-secondary" (click)="back()">
+      Back
+    </button>
+  </div>
+</div>
+<app-footer></app-footer>

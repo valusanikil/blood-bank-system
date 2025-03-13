@@ -1,0 +1,17 @@
+.main-container {
+    background-image: linear-gradient(to right, #a40606, #d98324);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .inner-container {
+    background-color: ghostwhite;
+    border-radius: 5px;
+    padding: 20px;
+    width: 40%;
+  }
+  .form-group {
+    margin-bottom: 14px;
+  }
+  
