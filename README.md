@@ -1,4 +1,4 @@
-# 🩸 Blood Bank Management System & User-Admin Registration (Full Stack Project)
+# 🩸 Blood Bank Management System (Full Stack Project)
 
 ## 📌 Project Overview
 The **Blood Bank Management System** is a full-stack web application designed to streamline the donation and supply of blood, supporting both **users** and **admins**. The system efficiently manages blood stock, user registrations, and critical urgent requirements.
